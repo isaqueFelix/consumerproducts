@@ -1,5 +1,7 @@
 package br.com.ibm.cadeiabatch.sns;
 
+import com.amazonaws.auth.AWSStaticCredentialsProvider;
+import com.amazonaws.auth.BasicAWSCredentials;
 import com.amazonaws.auth.DefaultAWSCredentialsProviderChain;
 import com.amazonaws.services.sns.AmazonSNS;
 import com.amazonaws.services.sns.AmazonSNSClientBuilder;
@@ -17,11 +19,17 @@ public class SnsConfig {
     @Value("${aws.sns.topic.product.events.arn}")
     private String productEventsTopic;
 
+    @Value("${amazon.aws.accesskey}")
+    private String accesskey;
+
+    @Value("${amazon.aws.secretkey}")
+    private String secretkey;
+
     @Bean
     public AmazonSNS snsClient() {
         return AmazonSNSClientBuilder.standard()
                 .withRegion(awsRegion)
-                .withCredentials(new DefaultAWSCredentialsProviderChain())
+                .withCredentials(new AWSStaticCredentialsProvider(new BasicAWSCredentials(accesskey, secretkey)))
                 .build();
     }
 

@@ -1,6 +1,8 @@
 package br.com.ibm.cadeiabatch.config;
 
+import com.amazonaws.auth.AWSCredentialsProviderChain;
 import com.amazonaws.auth.AWSStaticCredentialsProvider;
+import com.amazonaws.auth.BasicAWSCredentials;
 import com.amazonaws.auth.DefaultAWSCredentialsProviderChain;
 import com.amazonaws.client.builder.AwsClientBuilder;
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClient;
@@ -20,6 +22,12 @@ public class DynamoDBConfig {
     @Value("${amazon.aws.region}")
     private String amazonAWSRegion;
 
+    @Value("${amazon.aws.accesskey}")
+    private String accesskey;
+
+    @Value("${amazon.aws.secretkey}")
+    private String secretkey;
+
     @Bean
     public AmazonDynamoDB amazonDynamoDB() {
 
@@ -27,7 +35,8 @@ public class DynamoDBConfig {
                 = AmazonDynamoDBClientBuilder.standard()
                 .withRegion(amazonAWSRegion)
                 //.withEndpointConfiguration(new AwsClientBuilder.EndpointConfiguration (amazonDynamoDBEndpoint, amazonAWSRegion) )
-                .withCredentials(DefaultAWSCredentialsProviderChain.getInstance())
+                //.withCredentials(DefaultAWSCredentialsProviderChain.getInstance())
+                .withCredentials(new AWSStaticCredentialsProvider(new BasicAWSCredentials(accesskey, secretkey)))
                 .build();
         return amazonDynamoDB;
     }
