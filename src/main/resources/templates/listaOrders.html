@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <link rel="icon" href=href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAADICAMAAACahl6sAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAMZQTFRFAAAAH3DBH3DBH3DBH3DBH3DBH3DBH3DBH3DBH3DBH3DBH3DBH3DBH3DBH3DBH3DBH3DBH3DBH3DBH3DBH3DBH3DBH3DBH3DBH3DBH3DBH3DBH3DBH3DBH3DBH3DBH3DBH3DBH3DBH3DBH3DBH3DBH3DBH3DBH3DBH3DBH3DBH3DBH3DBH3DBH3DBH3DBH3DBH3DBH3DBH3DBH3DBH3DBH3DBH3DBH3DBH3DBH3DBH3DBH3DBH3DBH3DBH3DBH3DBH3DBH3DBwkCdKQAAAEF0Uk5TAFNfPDBIKBg4BN+ff++rWAhA10TnbzSj40yPDPOb61unv3hgjIQUw2Mku1D7ryCLHHf30xDH21SQs3x7g2eIXM8zOJnfAAAACXBIWXMAAABIAAAASABGyWs+AAADLElEQVR42u3b61baQBSG4TGCFkU8UA9VVKItFbVWqVZb29q5/5sqiKZkmMMOiBnXep+fyY7kW4sZZzaJUgAAAAAAAAAAAAAAAAAAAAAAAPCaS4LmB3WVRKa6MP4Zi74L3tnvq+a7pmK5YEkHLQ/q6lpqpbG6lv+MdV/5hj1I03dN/VWC9L3fXBMH0VvWINtRBNF654M4yK4tx14rkiBa7+8JgxzULLd1qIsGaadBR4O647Soj9lnVPyFtqH7yXvFMZM0UNjsBvujLcFgT9NOoaFuH+wzm36HPoen376T/D2ttQL19dcPoruSIKf5ezrTEQbZlAQ578iXJ2UF+SIJkv9uBb9Z1iAvvYw3nYWW8f8/4lknWF5hkgamsJyfGVJXXWJMIRe5sxfmDLPuPZv5+lxy6Z89ywuyIAuy87y9uoo0SK8mC6KbTyXfIg2SKmGQ7WHFlo40yJU0SGvYeNmdPggAv3mjG+2q6xZY+16bDURf8WFgnTw/41nL48a89iLQBa4H90WlBGl1iwXZVd+jDHI+/u00g+T3ggfGVnInjiCtWxUMYuzON/JfzHSyIEf53tGdq64q62id2sbmolFU/eH5C6t3lv4agKmVMtiVcg33n0pNONjLmH4TpfYdl68qlb6df4iJs5862Gelb2eJkji7z4OdbzRBwovGxNkeb04epIxlfNfZ4h40X6qTLeMBlNGguw/OWkqdjM1Zl4/H05g6jakgyHXPflFUQfxN7GEQ1bD/NhpVEP/PCk9BjB/We3sxBlkXBKkd5I621VRBANgIHs2YE9Y5H+FQzrPZhqVmW3ZXvXdkEDwssySscz5Uo5xnk+w+brJjv7JjqfeOXjnIpjDI7+xYJc4gXWGQTm/8WfmYggw3u4Ig2TLlfsIggocu28I658OZynl6ZD/dfDo00rC4894RgEJmN9j/jEw/gsGu1EP/QG7RX2iwz2z6HXkRRjT99ldB/S1VrqMXw/+RpdFXk4RB1F/dUHEFMV4Wkwa50mcxBVlp3JpvTQmDXBqvWxUK8tLL+OaCbZsfXMYPGW/yFVrGAwAAAAAAAAAAAAAAAAAAAAAAYMQ//1eWnVw5XjoAAAAldEVYdGRhdGU6Y3JlYXRlADIwMTItMTItMjdUMDY6NDU6NDEtMDY6MDBLJR3eAAAAJXRFWHRkYXRlOm1vZGlmeQAyMDEyLTEyLTI3VDA2OjQ1OjQxLTA2OjAwOnilYgAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAAASUVORK5CYII=">
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
+    <style type="text/css">.nav-underline .active{font-weight: 500;color: #343a40;}.nav-underline .nav-link{padding-top: .75rem;padding-bottom: .75rem;font-size: .875rem;color: #6c757d;}.nav-underline .nav-link:hover { color: #007bff;}.border-bottom { border-bottom: 1px solid #e5e5e5;}</style>
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+    <title>Application products</title>
+</head>
+
+<body class="bg-light">
+
+<div class="navbar navbar-light bg-light bg-gradient     border-bottom">
+    <nav class="nav nav-underline">
+        <a class="nav-link" href="/logout">Logout</a>
+        <a class="nav-link" href="/catalog">Catalog</a>
+        <a class="nav-link" href="/catalog/order">Orders</a>
+        <a class="nav-link" href="/order/create">New Order</a>
+    </nav>
+</div>
+
+<main role="main" class="container">
+    <div class="container">
+        <h1 class="mt-5">Order</h1>
+
+        <!-- Formulário de inserção de produtos -->
+        <h2 class="mt-4">Add New</h2>
+        <form th:action="@{/order/create}" method="post" class="mb-4" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="descricao">Description:</label>
+                <input type="text" id="descricao" name="descricao" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="price">Price:</label>
+                <input type="text" id="price" name="price" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="imagem">Image:</label>
+                <input type="file" id="imagem" name="imagem" class="form-control-file" required>
+            </div>
+            <button type="submit" class="btn btn-success">Request</button>
+        </form>
+    </div>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+<script>
+        $(document).ready(
+            $.get("/nivelUsuario", function(data){
+                if(data>0){
+                    $("#journal").prop("hidden", false);
+                }
+            })
+        )
+    </script>
+</body>
+
+</html>
